@@ -75,10 +75,20 @@ GET /api/check-rtw?share_code=W123X456Y&forename=John&surname=Doe&dob=07-09-1999
 
 ```json
 {
-  "status": "success",
   "data": {
-    ...
+  "code": 200,
+  "error": null,
+  "status": {
+    "conditions": "They can also work on a placement which is part of the course their student visa is based on. The work placement must be:",
+    "details": "They have permission to work in the UK until 30 March 2028, subject to the conditions and restrictions below.",
+    "expiry_date": "30/03/2028",
+    "name": "John Doe",
+    "outcome": "REJECTED",
+    "rejected_reason": "STUDENT",
+    "start_date": "12/04/2024",
+    "title": "Right to work"
   }
+}
 }
 ```
 
