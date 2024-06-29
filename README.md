@@ -15,7 +15,7 @@ This project demonstrates how to integrate with the UK Right to Work Sharecode A
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/rtw-sharecode-checker.git
+git clone https://github.com/jamesoneill997/rtw-sharecode-checker.git
 cd rtw-sharecode-checker
 ```
 
