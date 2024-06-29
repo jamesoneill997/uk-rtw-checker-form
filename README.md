@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# UK Right to Work Sharecode Checker
+
+This project demonstrates how to integrate with the UK Right to Work Sharecode API using a Next.js application. The application allows users to submit a form with their share code, forename, surname, and date of birth, which is then checked via an API.
+
+## Prerequisites
+
+- Node.js v14+
+- React v16+
+- npm or yarn
+- A RapidAPI account
+- Signed up to the UK RTW Sharecode API (You can sign up [here](https://rapidapi.com/jamesoneill997/api/uk-right-to-work-sharecode-checker))
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/rtw-sharecode-checker.git
+cd rtw-sharecode-checker
+```
+
+### 2. Install Dependencies
+
+Install the required dependencies using npm or yarn.
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Set Up Environment Variables
+
+Create a `.env.local` file in the root directory of your project and add the following environment variables. Replace the placeholder values with your actual RapidAPI credentials and other required values.
+
+```
+NEXT_PUBLIC_RAPIDAPI_HOST=uk-right-to-work-sharecode-checker.p.rapidapi.com
+NEXT_PUBLIC_RAPIDAPI_KEY=your_rapidapi_key
+RTW_COMPANY_NAME=Your Company Name
+RTW_ALLOW_SPONSORSHIP=false
+RTW_ALLOW_STUDENT=true
+```
+
+### 4. Run the Development Server
+
+Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application running.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `src/app/api/check-rtw/route.tsx`: API route for checking the right to work using the provided share code and other details.
+- `public/`: Public assets such as images.
+- `src/app/`: Contains the main application components and pages.
+- `next.config.mjs`: Configuration file for Next.js.
+- `tailwind.config.ts`: Tailwind CSS configuration.
 
-## Learn More
+## API Endpoint
 
-To learn more about Next.js, take a look at the following resources:
+The API endpoint is defined in `src/app/api/check-rtw/route.tsx`. It processes GET requests and sends a request to the UK Right to Work Sharecode API using the provided parameters.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Example Request
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+GET /api/check-rtw?share_code=W123X456Y&forename=John&surname=Doe&dob=07-09-1999
+```
 
-## Deploy on Vercel
+### Example Response
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```json
+{
+  "status": "success",
+  "data": {
+    ...
+  }
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Customization
+
+- **Form Fields**: Modify the form fields in the main component to suit your requirements.
+- **Styling**: Customize the styling using Tailwind CSS classes.
+
+## Troubleshooting
+
+- Ensure all environment variables are set correctly in your `.env.local` file.
+- Check the browser console and terminal for any error messages.
+- Verify your RapidAPI credentials and ensure they have the necessary permissions.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+
